@@ -1,0 +1,52 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# Xcode
+*.xcuserstate
+*.xcscmblueprint
+*.xccheckout
+*.xcworkspace/xcuserdata/
+*.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+*.xcuserdata/
+*.xcuserdatad/
+
+# Derived data
+DerivedData/
+build/
+
+# Swift Package Manager
+.build/
+Packages/
+.swiftpm/
+.idea/
+*.xcodeproj/project.xcworkspace/
+*.xcodeproj/xcuserdata/
+
+# CocoaPods
+Pods/
+*.lock
+*.xcworkspace
+
+# Carthage
+Carthage/Build/
+
+# Fastlane
+fastlane/report.xml
+fastlane/screenshots/
+fastlane/test_output/
+
+# Firebase
+GoogleService-Info.plist
+
+# Env files
+.env
+.env.*
+
+# Other
+*.log
+*.orig
+*.rej
