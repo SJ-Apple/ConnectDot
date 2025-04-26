@@ -18,6 +18,7 @@
 		3553F60D2DBB851900F9B6A6 /* GalaxyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3553F60C2DBB851900F9B6A6 /* GalaxyDetailView.swift */; };
 		3553F60F2DBB855800F9B6A6 /* StarDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3553F60E2DBB855800F9B6A6 /* StarDetailView.swift */; };
 		3553F6112DBB855D00F9B6A6 /* StarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3553F6102DBB855D00F9B6A6 /* StarModel.swift */; };
+		E53E15402DBBEAD900342D16 /* StarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53E153F2DBBEAD900342D16 /* StarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		3553F60E2DBB855800F9B6A6 /* StarDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarDetailView.swift; sourceTree = "<group>"; };
 		3553F6102DBB855D00F9B6A6 /* StarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarModel.swift; sourceTree = "<group>"; };
 		D199E1602DBA129E00D3598E /* StellaMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StellaMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E53E153F2DBBEAD900342D16 /* StarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			children = (
 				3553F60E2DBB855800F9B6A6 /* StarDetailView.swift */,
 				3553F6102DBB855D00F9B6A6 /* StarModel.swift */,
+				E53E153F2DBBEAD900342D16 /* StarView.swift */,
 			);
 			path = Star;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				3553F5FC2DBB843300F9B6A6 /* ContentView.swift in Sources */,
 				3553F5FD2DBB843300F9B6A6 /* StellaMeApp.swift in Sources */,
 				3553F60D2DBB851900F9B6A6 /* GalaxyDetailView.swift in Sources */,
+				E53E15402DBBEAD900342D16 /* StarView.swift in Sources */,
 				3553F60B2DBB851200F9B6A6 /* GalaxyModel.swift in Sources */,
 				3553F6072DBB84FF00F9B6A6 /* MakeAndSelectView.swift in Sources */,
 			);
