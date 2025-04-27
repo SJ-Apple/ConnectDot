@@ -10,12 +10,11 @@ import SwiftData
 
 struct StarView: View {
     let star: StarModel
-
+    @EnvironmentObject var backgroundSettings: BackgroundSettings
     var body: some View {
-        NavigationLink(destination: StarDetailView(star: star)) {
+        NavigationLink(destination: StarDetailView(star: star).environmentObject(BackgroundSettings())) {
             VStack {
-                // TODO: 이미지 설정, 디자인 바꾸기
-                Image(systemName: "star.fill")
+                Image("Star1")
                     .resizable()
                     .frame(width: 50, height: 50)
                     .foregroundColor(.yellow)
@@ -29,7 +28,7 @@ struct StarView: View {
             }
             .padding()
         }
-        .buttonStyle(.plain) // 기본 스타일 제거
+        .buttonStyle(.plain)
     }
 }
 

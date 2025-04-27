@@ -6,12 +6,22 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct StellaMeApp: App {
+    @StateObject private var backgroundSettings = BackgroundSettings()
+    @State private var container: ModelContainer = {
+        let schema = Schema([StarModel.self, GalaxyModel.self])
+        return try! ModelContainer(for: schema)
+    }()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack{
+                HomeView()
+                    .modelContainer(container)
+                    .environmentObject(backgroundSettings)
+            }
         }
     }
 }

@@ -15,18 +15,30 @@ struct StarDetailView: View {
     let star: StarModel
 
     var body: some View {
-        VStack(spacing: 20) {
-            Text("별 내용")
-                .font(.headline)
-            Text(star.starText)
-                .padding()
+        
+        ZStack {
+            Image("\(backgroundSettings.currentBackgroundImage)")
+            VStack(spacing: 20) {
+                Text("별 내용")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                Text(star.starText)
+                    .foregroundColor(.white)
+                    .padding()
 
-            Text("생성 날짜")
-                .font(.subheadline)
-            Text(star.date.formatted(date: .long, time: .shortened))
+                Text("생성 날짜")
+                    .font(.subheadline)
+                    .foregroundColor(.white)
+                Text(star.date.formatted(date: .long, time: .shortened))
+                    .foregroundColor(.white)
+            }
+            .padding()
+            .navigationTitle("별 세부정보 뷰")
+            
+            Image(systemName: "star.fill")
+                .foregroundColor(.yellow)
+            
         }
-        .padding()
-        .navigationTitle("별 세부정보 뷰")
     }
 }
 
@@ -44,3 +56,5 @@ struct StarDetailView: View {
             .environmentObject(BackgroundSettings())
     }
 }
+
+

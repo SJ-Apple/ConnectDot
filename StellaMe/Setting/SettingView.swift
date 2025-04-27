@@ -10,25 +10,24 @@ import SwiftUI
 
 // MARK: - TODO -> @인바이어먼트오브젝트로 세팅 뷰 뿌려주기
 // MARK: - 배경화면 설정을 위한 Environment 객체
+
+// 기존 Published에서 AppStorage로 변경함
+// Why? : 기존 방식인 Published의 경우 메모리 상에서 값이 유지되므로 앱 종료 후 재실행을 하는 경우에 배경 이미지가 기본 값으로 초기화 되는 문제가 있었다. 사용자 설정을 저장하는데 SwiftData는 필요 이상으로 무겁기 때문에 AppStorage를 이용해서 사용자 설정을 저장하였다.
+
 class BackgroundSettings: ObservableObject {
-    @Published var currentBackgroundImage: String
-    
-    init(currentBackgroundImage: String = "Mainbg") {
-        self.currentBackgroundImage = currentBackgroundImage
-    }
+    @AppStorage("currentBackgroundImage") var currentBackgroundImage: String = "DefaultImage"
 }
 
 struct SettingView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var backgroundSettings: BackgroundSettings
     @State private var selectedImage: String = ""
-
+    
     // MARK: - 배경화면 이미지 리소스 목록
     private let alternativeBackgroundImage: [String] = [
         // 배경화면 이미지 파일 넣고, 해당 이미지의 이름 넣으시면 됩니다.
-        // 현재 피그마에 있는 이미지는 서로 사이즈가 달라서 수정 필요
-        // TODO: 디자인 최종 확정 후 이미지 교체 예정
-        "Mainbg",
+        // 현재 이미지는 서로 사이즈가 달라서 수정 필요
+        "DefaultImage",
         "Marsbg",
         "Pinkbg"
     ]
@@ -36,7 +35,7 @@ struct SettingView: View {
     // MARK: -  주요 기능
     // 1. TabView를 이용한 페이지 스와이프 기능
     // 2. 하단에 페이지 인디케이터를 통해 현재 페이지 확인 가능, 선택한 배경화면을 여러 View에서 적용 가능
-    //https://seons-dev.tistory.com/entry/SwiftUI-TabView (참고 링크)
+    // https://seons-dev.tistory.com/entry/SwiftUI-TabView (참고 링크)
     
     // MARK: - 필요한 요소
     // 1. Figma상의 Edit버튼 (변경한 배경화면을 적용할 수 있도록 동작)
@@ -61,12 +60,18 @@ struct SettingView: View {
                                 .tag(imageName)
                             
                             // 버튼 추가
-                            // 버튼의 액션 부분에 들어갈 코드
-                            // 1. 설정된 이미지로 배경 이미지 변경
-                            // backgroundSettings.currentBackgroundImage = selectedImage
-                            // 2. 현재 창 종료 후 HomeView로 돌아가기
-                            // dismiss()
-                            
+                            Button {
+                                backgroundSettings.currentBackgroundImage = selectedImage
+                                dismiss()
+                            } label: {
+                                Text("배경화면 변경")
+                                    .font(.headline)
+                                    .padding()
+                                    .background(Color.blue)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(10)
+                            }
+                            .padding(.bottom, 40)
                             
                         } // ZStack
                         

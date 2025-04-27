@@ -8,11 +8,62 @@
 import SwiftUI
 
 struct GalaxyMakeView: View {
+    @Environment(\.dismiss) var dismiss
+    
+    @Binding var newGalaxyName: String
+    @Binding var isPresented: Bool
+    
+    @State private var galaxyTitle: String = ""
+    @State private var selectedImageName: String? = nil
+    
+    @Environment(\.modelContext) var modelContext
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+        VStack {
+            TextField("별자리 이름 작성하기", text: $galaxyTitle)
+                .textFieldStyle(.roundedBorder)
+                .frame(width: 300, height: 50)
+            
+            Button {
+                if !galaxyTitle.isEmpty, let selectedImageName = selectedImageName { // 옵셔널 바인딩으로 처리
+                    newGalaxyName = galaxyTitle
+                    let newGalaxy = GalaxyModel(
+                        id: UUID(),
+                        title: galaxyTitle,
+                        galaxyImageName: selectedImageName,
+                        galaxyTexts: []
+                    )
+                    modelContext.insert(newGalaxy)
+                    try? modelContext.save()
+                    dismiss()
+                }
+            } label: {
+                VStack {
+                    HStack {
+                        ForEach(["firstStar", "secondStar", "thirdStar", "fourthStar", "fifthStar"], id: \.self) { imageName in
+                            Image(imageName)
+                                .resizable()
+                                .frame(width: 50,height: 50)
+                                .border(selectedImageName == imageName ? Color.blue : Color.clear, width: 2)
+                                .onTapGesture {
+                                    selectedImageName = imageName
+                                }
+                        }
+                    }
+                RoundedRectangle(cornerRadius: 20)
+                    .frame(width: 150, height: 50)
+                    .overlay {
+                        Text("별자리 생성")
+                            .foregroundStyle(.white)
+                    }
+                }
+            }
+
+        }
+    } //: body
 }
 
+
 #Preview {
-    GalaxyMakeView()
+    GalaxyMakeView(newGalaxyName: .constant(""), isPresented: .constant(true))
 }
