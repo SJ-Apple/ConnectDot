@@ -9,36 +9,64 @@ import SwiftUI
 import SwiftData
 
 struct StarDetailView: View {
-    // TODO: ContentView에 ModelContainer 삽입하기
-    // TODO: HomeView에서 StarMemoryes이용해서 별 뿌려주기
     @EnvironmentObject var backgroundSettings: BackgroundSettings
     let star: StarModel
 
     var body: some View {
-        
         ZStack {
-            Image("\(backgroundSettings.currentBackgroundImage)")
-            VStack(spacing: 20) {
-                Text("별 내용")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                Text(star.starText)
-                    .foregroundColor(.white)
-                    .padding()
+            // 배경 이미지 + 오버레이
+            Image(backgroundSettings.currentBackgroundImage)
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
+                .overlay(Color.black.opacity(0.5))
 
-                Text("생성 날짜")
-                    .font(.subheadline)
+            VStack {
+                Spacer()
+                    .frame(height: 250) // 상단 여백
+
+                // 별 아이콘
+                Image(systemName: "star.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 80, height: 80)
+                    .foregroundColor(.yellow)
+                    .shadow(radius: 10)
+
+                Spacer()
+                    .frame(height: 20)
+
+                // 별 제목
+                Text(star.starText)
+                    .font(.title.bold())
                     .foregroundColor(.white)
-                Text(star.date.formatted(date: .long, time: .shortened))
-                    .foregroundColor(.white)
+                    .shadow(radius: 5)
+                    .padding(.horizontal, 30)
+
+                Spacer()
+                    .frame(height: 20)
+
+                // 생성일자 표시
+                VStack(spacing: 8) {
+                    Text("생성 날짜")
+                        .font(.subheadline)
+                        .foregroundColor(.white.opacity(0.8))
+
+                    Text(star.date.formatted(date: .long, time: .shortened))
+                        .font(.body)
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 10)
+                        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12))
+                        .shadow(radius: 5)
+                }
+
+                Spacer()
             }
             .padding()
-            .navigationTitle("별 세부정보 뷰")
-            
-            Image(systemName: "star.fill")
-                .foregroundColor(.yellow)
-            
         }
+        .navigationTitle("별 세부정보")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -56,5 +84,3 @@ struct StarDetailView: View {
             .environmentObject(BackgroundSettings())
     }
 }
-
-
