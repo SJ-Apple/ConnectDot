@@ -27,7 +27,8 @@ struct HomeView: View {
                     
                     // 화면 상단 일정 공간에 내가 저장한 갤럭시 띄우는 로직
                     ForEach(GalaxyMemoryes) { galaxyMemory in
-                        NavigationLink(destination: GalaxyDetailView(galaxyModel: galaxyMemory)) {
+                        NavigationLink(destination: GalaxyDetailView(galaxyModel: galaxyMemory)
+                            .environmentObject(BackgroundSettings())) {
                             Image(galaxyMemory.galaxyImageName)
                                 .resizable()
                                 .frame(width: 50, height: 50)
@@ -144,4 +145,5 @@ struct HomeViewPreviewWrapper: View {
 
 #Preview {
     HomeViewPreviewWrapper()
+    
 }
