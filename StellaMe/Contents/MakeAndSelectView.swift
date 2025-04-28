@@ -37,74 +37,125 @@ struct MakeAndSelectView: View {
     var starModel: StarModel?
     
     var body: some View {
-        VStack {
-            Spacer()
+        ZStack {
+            Image("BG")
+                .resizable(resizingMode: .stretch)
             
-            Image(systemName: "star.fill")
-                .foregroundStyle(.yellow)
-                .font(.system(size: 40))
-            
-            TextField("하루 일과", text: $todayText)
-                .textFieldStyle(.roundedBorder)
-                .frame(width: 300, height: 40)
-            
-            // MARK: - 하늘로 보내기 버튼
-            Button {
-                saveStar(text: todayText)
-            } label: {
-                RoundedRectangle(cornerRadius: 20)
-                    .frame(width: 200, height: 50)
-                    .overlay {
-                        Text("하늘로 보내기")
-                            .font(.headline)
-                            .bold()
-                            .foregroundStyle(.white)
-                    }
-            } //: Label
-            
-            /*
-             1. 갤럭시를 선택하지 않으면 보내기 버튼 enabled
-             2. 갤럭시를 드롭다운에서 예를 들어 galaxyA를 선택하면 보내기 버튼이 활성화.
-             3. galaxyA를 선택하고, 하루일과 입력하고, 하늘로 보내기 누르면 galaxyA에 추가됨.
-             */
-            
-            // MARK: - 드롭다운 휠 형식 구현 로직
-            Picker("selectOption", selection: $selectedOption) {
-                ForEach(dropDownOption, id: \.self) {
-                    Text($0)
-                }
-            }
-            .pickerStyle(.wheel)
-            .frame(width: 300, height: 180)
-            .onChange(of: selectedOption) {
-                if selectedOption == "새로운 별자리 만들기" {
-                    moveToGalaxyMakeView = true
-                }
-            }
-            
-            Spacer()
-            
-            // MARK: - 나의 별자리로 보내기 버튼
-            Button {
-                // 드롭다운에서 선택된 galaxy 이름과 매칭되는 GalaxyModel을 찾기
-                if let galaxy = galaxyMemory.first(where: { $0.title == selectedOption }) {
-                    galaxy.galaxyTexts.append(todayText)
-                    todayText = ""
-                    try? modelContext.save()
-                    dismiss()
-                }
-                todayText = "" // 텍스트 입력창 초기화
+            VStack {
                 
-            } label: {
-                RoundedRectangle(cornerRadius: 20)
-                    .frame(width: 200, height: 50)
-                    .overlay {
-                        Text("나의 별자리로 보내기")
-                            .bold()
-                            .foregroundStyle(.white)
+                Spacer()
+                Spacer()
+                
+                
+                HStack {
+                    Text("별")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.yellow)
+                        .multilineTextAlignment(.center)
+                    Text("볼 일 없는 일상도")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.white)
+                        .multilineTextAlignment(.center)
+                }
+                HStack {
+                    Text("여기에서는")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.white)
+                        .multilineTextAlignment(.center)
+                    Text("별")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.yellow)
+                        .multilineTextAlignment(.center)
+                    Text("나요")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.white)
+                        .multilineTextAlignment(.leading)
+                        .padding(.leading, -8.0)
+                }
+                
+                Image("MakeAndSelectViewStar")
+                    .resizable()
+                    .frame(width: 200, height: 230)
+                    
+                
+                Spacer()
+                
+                
+                TextField("오늘 무슨 일을 하셨나요?", text: $todayText)
+                    .textFieldStyle(.roundedBorder)
+                    .frame(width: 300, height: 40)
+                
+                
+                // MARK: - 하늘로 보내기 버튼
+//                Button {
+//                    saveStar(text: todayText)
+//                } label: {
+//                    RoundedRectangle(cornerRadius: 20)
+//                        .frame(width: 200, height: 50)
+//                        .overlay {
+//                            Text("하늘로 보내기")
+//                                .font(.headline)
+//                                .bold()
+//                                .foregroundStyle(.white)
+//                        }
+//                    
+//                } //: Label
+                
+                /*
+                 1. 갤럭시를 선택하지 않으면 보내기 버튼 enabled
+                 2. 갤럭시를 드롭다운에서 예를 들어 galaxyA를 선택하면 보내기 버튼이 활성화.
+                 3. galaxyA를 선택하고, 하루일과 입력하고, 하늘로 보내기 누르면 galaxyA에 추가됨.
+                 */
+                
+                // MARK: - 드롭다운 휠 형식 구현 로직
+                Picker("selectOption", selection: $selectedOption) {
+                    ForEach(dropDownOption, id: \.self) {
+                        Text($0)
+                            .foregroundColor(.white)
                     }
+                }
+                .pickerStyle(.wheel)
+                .frame(width: 300, height: 180)
+                .onChange(of: selectedOption) {
+                    if selectedOption == "새로운 별자리 만들기" {
+                        moveToGalaxyMakeView = true
+                    }
+                }
+                
+                
+                
+                // MARK: - 나의 별자리로 보내기 버튼
+                Button {
+                    // 드롭다운에서 선택된 galaxy 이름과 매칭되는 GalaxyModel을 찾기
+                    if let galaxy = galaxyMemory.first(where: { $0.title == selectedOption }) {
+                        galaxy.galaxyTexts.append(todayText)
+                        todayText = ""
+                        try? modelContext.save()
+                        dismiss()
+                    }
+                    todayText = "" // 텍스트 입력창 초기화
+                    
+                } label: {
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(Color.yellow)
+                        .frame(width: 150, height: 50)
+                        .overlay {
+                            Text("하늘에 수놓기")
+                                .bold()
+                                .foregroundStyle(.white)
+                            
+                        }
+                }
+                .padding(.top, 50.0)
+                Spacer(minLength: 0)
             }
         }
+        .ignoresSafeArea(.all)
         .sheet(isPresented: $moveToGalaxyMakeView) {
             GalaxyMakeView(newGalaxyName: $newGalaxyName, isPresented: $moveToGalaxyMakeView)
         }

@@ -73,7 +73,8 @@ struct SettingView: View {
                             }
                             .padding(.bottom, 40)
                             
-                        } // ZStack
+                        }.ignoresSafeArea(.all)
+                        // ZStack
                         
                     } // ForEach
                     
