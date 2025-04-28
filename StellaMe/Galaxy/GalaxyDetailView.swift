@@ -86,7 +86,7 @@
 //  Created by JaeyoungLee on 4/24/25.
 
 import SwiftUI
-import SwiftData
+import SwiftData   
 
 struct GalaxyDetailView: View {
     @Environment(\.modelContext) private var modelContext
