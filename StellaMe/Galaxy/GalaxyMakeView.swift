@@ -48,7 +48,7 @@ struct GalaxyMakeView: View {
                             id: UUID(),
                             title: galaxyTitle,
                             galaxyImageName: selectedImageName,
-                            galaxyTexts: []
+                            galaxyStars: []
                         )
                         modelContext.insert(newGalaxy)
                         try? modelContext.save()

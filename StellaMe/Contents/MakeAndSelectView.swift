@@ -131,15 +131,20 @@ struct MakeAndSelectView: View {
                 
                 // MARK: - 나의 별자리로 보내기 버튼
                 Button {
-                    // 드롭다운에서 선택된 galaxy 이름과 매칭되는 GalaxyModel을 찾기
-                    if let galaxy = galaxyMemory.first(where: { $0.title == selectedOption }) {
-                        galaxy.galaxyTexts.append(todayText)
-                        todayText = ""
+                    if selectedOption == "새로운 별 만들기" {
+                        saveStar(text: todayText)
+                    } else if let galaxy = galaxyMemory.first(where: { $0.title == selectedOption }) {
+                        let newStar = StarModel(starID: UUID(), starText: todayText, date: Date())
+                        modelContext.insert(newStar)
+
+                        let newGalaxyStar = GalaxyStarModel(id: UUID(), linkedStar: newStar)
+                        galaxy.galaxyStars.append(newGalaxyStar)
+
                         try? modelContext.save()
+                        print("\(galaxy.title)에 새로운 별 추가 완료")
                         dismiss()
                     }
                     todayText = "" // 텍스트 입력창 초기화
-                    
                 } label: {
                     RoundedRectangle(cornerRadius: 20)
                         .fill(Color.yellow)
@@ -148,9 +153,9 @@ struct MakeAndSelectView: View {
                             Text("하늘에 수놓기")
                                 .bold()
                                 .foregroundStyle(.white)
-                            
                         }
                 }
+                .disabled(todayText.isEmpty)
                 .padding(.top, 50.0)
                 Spacer(minLength: 0)
             }

@@ -135,7 +135,12 @@ struct HomeViewPreviewWrapper: View {
         let previewStar = StarModel(starID: UUID(), starText: "미리보기 별", date: Date())
         context.insert(previewStar)
 
-        let previewGalaxy = GalaxyModel(id: UUID(), title: "제발", galaxyImageName: "fifthStar", galaxyTexts: ["1번", "2번"])
+        let previewGalaxy = GalaxyModel(
+            id: UUID(),
+            title: "파운데이션 마지막날",
+            galaxyImageName: "yellow",
+            galaxyStars: [GalaxyStarModel(id: UUID(), linkedStar: StarModel(starID: UUID(), starText: "헛둘", date: Date())), GalaxyStarModel(id: UUID(), linkedStar: StarModel(starID: UUID(), starText: "ddd", date: Date()))]
+        )
         context.insert(previewGalaxy)
 
         try! context.save()

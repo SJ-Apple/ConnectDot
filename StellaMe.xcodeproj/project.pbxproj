@@ -37,6 +37,14 @@
 		E53E153F2DBBEAD900342D16 /* StarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		E555AB182DBFA443005412F0 /* Model */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		D199E15D2DBA129E00D3598E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -51,6 +59,7 @@
 		3553F5FA2DBB843300F9B6A6 /* StellaMe */ = {
 			isa = PBXGroup;
 			children = (
+				E555AB182DBFA443005412F0 /* Model */,
 				3553F5FE2DBB84C100F9B6A6 /* Setting */,
 				3553F6012DBB84D300F9B6A6 /* Contents */,
 				3553F5FF2DBB84C800F9B6A6 /* Star */,
@@ -129,6 +138,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				E555AB182DBFA443005412F0 /* Model */,
 			);
 			name = StellaMe;
 			packageProductDependencies = (
