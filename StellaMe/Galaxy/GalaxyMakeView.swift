@@ -19,47 +19,71 @@ struct GalaxyMakeView: View {
     @Environment(\.modelContext) var modelContext
     
     var body: some View {
-        VStack {
-            TextField("별자리 이름 작성하기", text: $galaxyTitle)
-                .textFieldStyle(.roundedBorder)
-                .frame(width: 300, height: 50)
+        ZStack {
+            Image("BG")
+                .resizable()
             
-            Button {
-                if !galaxyTitle.isEmpty, let selectedImageName = selectedImageName { // 옵셔널 바인딩으로 처리
-                    newGalaxyName = galaxyTitle
-                    let newGalaxy = GalaxyModel(
-                        id: UUID(),
-                        title: galaxyTitle,
-                        galaxyImageName: selectedImageName,
-                        galaxyTexts: []
-                    )
-                    modelContext.insert(newGalaxy)
-                    try? modelContext.save()
-                    dismiss()
-                }
-            } label: {
-                VStack {
-                    HStack {
-                        ForEach(["firstStar", "secondStar", "thirdStar", "fourthStar", "fifthStar"], id: \.self) { imageName in
-                            Image(imageName)
-                                .resizable()
-                                .frame(width: 50,height: 50)
-                                .border(selectedImageName == imageName ? Color.blue : Color.clear, width: 2)
-                                .onTapGesture {
-                                    selectedImageName = imageName
-                                }
-                        }
+            VStack {
+                Text("별자리 만들기")
+                    .foregroundStyle(.white)
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                
+                Spacer()
+                    .frame(height: 100)
+                
+                
+                TextField("별자리 이름 작성하기", text: $galaxyTitle)
+                    .textFieldStyle(.roundedBorder)
+                    .frame(width: 300, height: 50)
+                
+                Spacer()
+                    .frame(height: 50)
+                
+                
+                Button {
+                    if !galaxyTitle.isEmpty, let selectedImageName = selectedImageName { // 옵셔널 바인딩으로 처리
+                        newGalaxyName = galaxyTitle
+                        let newGalaxy = GalaxyModel(
+                            id: UUID(),
+                            title: galaxyTitle,
+                            galaxyImageName: selectedImageName,
+                            galaxyTexts: []
+                        )
+                        modelContext.insert(newGalaxy)
+                        try? modelContext.save()
+                        dismiss()
                     }
-                RoundedRectangle(cornerRadius: 20)
-                    .frame(width: 150, height: 50)
-                    .overlay {
+                } label: {
+                    VStack {
+                        HStack {
+                            ForEach(["firstStar", "secondStar", "thirdStar", "fourthStar", "fifthStar"], id: \.self) { imageName in
+                                Image(imageName)
+                                    .resizable()
+                                    .frame(width: 65,height: 65)
+                                    .border(selectedImageName == imageName ? Color.yellow : Color.clear, width: 2)
+                                    .onTapGesture {
+                                        selectedImageName = imageName
+                                    }
+                            }
+                        }
+                        Spacer()
+                            .frame(height: 70)
+                        
+                        RoundedRectangle(cornerRadius: 20)
+                            .foregroundStyle(Color.yellow)
+                            .frame(width: 150, height: 50)
+                            .overlay {
                         Text("별자리 생성")
                             .foregroundStyle(.white)
+                            }
+                    
                     }
                 }
+                
             }
-
         }
+        .ignoresSafeArea()
     } //: body
 }
 
