@@ -59,19 +59,39 @@ struct SettingView: View {
                                 .clipped()
                                 .tag(imageName)
                             
-                            // 버튼 추가
-                            Button {
-                                backgroundSettings.currentBackgroundImage = selectedImage
-                                dismiss()
-                            } label: {
-                                Text("배경화면 변경")
-                                    .font(.headline)
-                                    .padding()
-                                    .background(Color.black)
-                                    .foregroundColor(.white)
-                                    .cornerRadius(10)
+                            VStack
+                            {
+                                
+                                Spacer()
+                                VStack {
+                                    
+                                    
+                                    Text("저를 눌러")
+                                        .font(.system(size: 20, weight: .bold, design: .default))
+                                        .foregroundColor(.white)
+                                    Text("보세$%!")
+                                        .font(.system(size: 20, weight: .bold, design: .default))
+                                        .foregroundColor(.white)
+                                    
+                                
+                                
+                                    
+                                }
+                                
+                                    
+                                
+                                Button {
+                                    backgroundSettings.currentBackgroundImage = selectedImage
+                                    dismiss()
+                                } label: {
+                                    Image("BGSelect")
+                                        .resizable()
+                                        .frame(width: 80, height: 100)
+                                }
+                                
                             }
-                            .padding(.bottom, 40)
+                            
+                            .padding(.bottom, 200)
                             
                         }.ignoresSafeArea(.all)
                         // ZStack

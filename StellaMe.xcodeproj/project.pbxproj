@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		35448EE62DC0644300B9B904 /* GalaxyStarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35448EE42DC0644300B9B904 /* GalaxyStarModel.swift */; };
 		35448EE92DC065AF00B9B904 /* OnboardingTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35448EE82DC065AF00B9B904 /* OnboardingTabView.swift */; };
 		35448EEB2DC065C000B9B904 /* OnboardingLastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35448EEA2DC065C000B9B904 /* OnboardingLastView.swift */; };
 		35448EED2DC065CB00B9B904 /* OnboardingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35448EEC2DC065CB00B9B904 /* OnboardingPageView.swift */; };
@@ -25,10 +24,10 @@
 		E5C556AB2DC06D39004D2801 /* StellaMeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C556AA2DC06D39004D2801 /* StellaMeApp.swift */; };
 		E5C556AD2DC06F0E004D2801 /* WalkingBunny.json in Resources */ = {isa = PBXBuildFile; fileRef = E5C556AC2DC06F0E004D2801 /* WalkingBunny.json */; };
 		E5C556B02DC06F80004D2801 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = E5C556AF2DC06F80004D2801 /* Lottie */; };
+		E5C556EA2DC09BFA004D2801 /* GalaxyStarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C556E92DC09BFA004D2801 /* GalaxyStarModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		35448EE42DC0644300B9B904 /* GalaxyStarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalaxyStarModel.swift; sourceTree = "<group>"; };
 		35448EE82DC065AF00B9B904 /* OnboardingTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTabView.swift; sourceTree = "<group>"; };
 		35448EEA2DC065C000B9B904 /* OnboardingLastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLastView.swift; sourceTree = "<group>"; };
 		35448EEC2DC065CB00B9B904 /* OnboardingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageView.swift; sourceTree = "<group>"; };
@@ -46,6 +45,7 @@
 		E5C556A82DC06D2A004D2801 /* BunnyLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BunnyLogic.swift; sourceTree = "<group>"; };
 		E5C556AA2DC06D39004D2801 /* StellaMeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StellaMeApp.swift; sourceTree = "<group>"; };
 		E5C556AC2DC06F0E004D2801 /* WalkingBunny.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = WalkingBunny.json; sourceTree = "<group>"; };
+		E5C556E92DC09BFA004D2801 /* GalaxyStarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalaxyStarModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,14 +60,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		35448EE52DC0644300B9B904 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				35448EE42DC0644300B9B904 /* GalaxyStarModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		35448EE72DC0644700B9B904 /* OnboardingFile */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,13 +77,11 @@
 				E5C556AC2DC06F0E004D2801 /* WalkingBunny.json */,
 				E5C556AA2DC06D39004D2801 /* StellaMeApp.swift */,
 				E5C556A82DC06D2A004D2801 /* BunnyLogic.swift */,
-				E555AB182DBFA443005412F0 /* Model */,
 				3553F5FE2DBB84C100F9B6A6 /* Setting */,
 				3553F6012DBB84D300F9B6A6 /* Contents */,
 				3553F5FF2DBB84C800F9B6A6 /* Star */,
 				3553F6002DBB84CD00F9B6A6 /* Galaxy */,
 				3553F5F72DBB843300F9B6A6 /* Assets.xcassets */,
-
 			);
 			path = StellaMe;
 			sourceTree = "<group>";
@@ -136,6 +126,7 @@
 		D199E1572DBA129E00D3598E = {
 			isa = PBXGroup;
 			children = (
+				E5C556E82DC09BD0004D2801 /* Model */,
 				3553F5FA2DBB843300F9B6A6 /* StellaMe */,
 				D199E1612DBA129E00D3598E /* Products */,
 			);
@@ -147,6 +138,14 @@
 				D199E1602DBA129E00D3598E /* StellaMe.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E5C556E82DC09BD0004D2801 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E5C556E92DC09BFA004D2801 /* GalaxyStarModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,15 +232,11 @@
 				E5C556A92DC06D2A004D2801 /* BunnyLogic.swift in Sources */,
 				3553F6112DBB855D00F9B6A6 /* StarModel.swift in Sources */,
 				3553F6052DBB84F300F9B6A6 /* HomeView.swift in Sources */,
-
-        35448EE62DC0644300B9B904 /* GalaxyStarModel.swift in Sources */,
 				35448EE92DC065AF00B9B904 /* OnboardingTabView.swift in Sources */,
 				35448EEB2DC065C000B9B904 /* OnboardingLastView.swift in Sources */,
-				3553F5FC2DBB843300F9B6A6 /* ContentView.swift in Sources */,
-				3553F5FD2DBB843300F9B6A6 /* StellaMeApp.swift in Sources */,
-
 				3553F60D2DBB851900F9B6A6 /* GalaxyDetailView.swift in Sources */,
 				E5C556AB2DC06D39004D2801 /* StellaMeApp.swift in Sources */,
+				E5C556EA2DC09BFA004D2801 /* GalaxyStarModel.swift in Sources */,
 				E53E15402DBBEAD900342D16 /* StarView.swift in Sources */,
 				3553F60B2DBB851200F9B6A6 /* GalaxyModel.swift in Sources */,
 				3553F6072DBB84FF00F9B6A6 /* MakeAndSelectView.swift in Sources */,
@@ -377,6 +372,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V826FS4328;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -404,6 +400,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V826FS4328;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
