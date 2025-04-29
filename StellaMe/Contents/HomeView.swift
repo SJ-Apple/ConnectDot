@@ -25,6 +25,24 @@ struct HomeView: View {
                         .scaledToFill()
                         .ignoresSafeArea()
                     
+                    let galaxyLinkedStarIDs: Set<UUID> = Set(
+                        GalaxyMemoryes.flatMap { galaxy in
+                            galaxy.galaxyStars.compactMap { $0.linkedStar?.starID }
+                        }
+                    )
+
+                    let independentStars = StarMemoryes.filter { star in
+                        !galaxyLinkedStarIDs.contains(star.starID)
+                    }
+
+                    ForEach(independentStars.shuffled().prefix(5)) { star in
+                        StarView(star: star)
+                            .position(
+                                x: CGFloat.random(in: 0...(geometry.size.width)),
+                                y: CGFloat.random(in: 0...(geometry.size.height) / 2)
+                            )
+                    }
+                    
                     // 화면 상단 일정 공간에 내가 저장한 갤럭시 띄우는 로직
                     ForEach(GalaxyMemoryes) { galaxyMemory in
                         NavigationLink(destination: GalaxyDetailView(galaxyModel: galaxyMemory)
@@ -39,14 +57,6 @@ struct HomeView: View {
                     } //: Loop
                     .frame(width: geometry.size.width, height: geometry.size.height)
                     
-                    // 랜덤 별 배치
-                    ForEach(StarMemoryes.sorted(by: {$0.date > $1.date}).prefix(5)) {
-                        star in StarView(star: star)
-                            .position(
-                                x: CGFloat.random(in: 0...(geometry.size.width)),
-                                y: CGFloat.random(in: 0...(geometry.size.height) / 2)
-                            )
-                    }
 
                     VStack {
                         Spacer()
@@ -135,7 +145,12 @@ struct HomeViewPreviewWrapper: View {
         let previewStar = StarModel(starID: UUID(), starText: "미리보기 별", date: Date())
         context.insert(previewStar)
 
-        let previewGalaxy = GalaxyModel(id: UUID(), title: "제발", galaxyImageName: "fifthStar", galaxyTexts: ["1번", "2번"])
+        let previewGalaxy = GalaxyModel(
+            id: UUID(),
+            title: "파운데이션 마지막날",
+            galaxyImageName: "yellow",
+            galaxyStars: [GalaxyStarModel(id: UUID(), linkedStar: StarModel(starID: UUID(), starText: "헛둘", date: Date())), GalaxyStarModel(id: UUID(), linkedStar: StarModel(starID: UUID(), starText: "ddd", date: Date()))]
+        )
         context.insert(previewGalaxy)
 
         try! context.save()

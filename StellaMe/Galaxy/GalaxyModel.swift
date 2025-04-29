@@ -14,12 +14,12 @@ class GalaxyModel {
     @Attribute(.unique) var id: UUID
     var title: String
     var galaxyImageName: String
-    var galaxyTexts: [String]
+    var galaxyStars: [GalaxyStarModel] = []
     
-    init(id: UUID, title: String, galaxyImageName: String, galaxyTexts: [String] = []) {
+    init(id: UUID, title: String, galaxyImageName: String, galaxyStars:[GalaxyStarModel] = []) {
         self.id = id
         self.title = title
         self.galaxyImageName = galaxyImageName
-        self.galaxyTexts = galaxyTexts
+        self.galaxyStars = galaxyStars
     }
 }
