@@ -19,6 +19,8 @@
 		E53E15402DBBEAD900342D16 /* StarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53E153F2DBBEAD900342D16 /* StarView.swift */; };
 		E5C556A92DC06D2A004D2801 /* BunnyLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C556A82DC06D2A004D2801 /* BunnyLogic.swift */; };
 		E5C556AB2DC06D39004D2801 /* StellaMeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C556AA2DC06D39004D2801 /* StellaMeApp.swift */; };
+		E5C556AD2DC06F0E004D2801 /* WalkingBunny.json in Resources */ = {isa = PBXBuildFile; fileRef = E5C556AC2DC06F0E004D2801 /* WalkingBunny.json */; };
+		E5C556B02DC06F80004D2801 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = E5C556AF2DC06F80004D2801 /* Lottie */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,7 @@
 		E53E153F2DBBEAD900342D16 /* StarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarView.swift; sourceTree = "<group>"; };
 		E5C556A82DC06D2A004D2801 /* BunnyLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BunnyLogic.swift; sourceTree = "<group>"; };
 		E5C556AA2DC06D39004D2801 /* StellaMeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StellaMeApp.swift; sourceTree = "<group>"; };
+		E5C556AC2DC06F0E004D2801 /* WalkingBunny.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = WalkingBunny.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -50,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5C556B02DC06F80004D2801 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +63,7 @@
 		3553F5FA2DBB843300F9B6A6 /* StellaMe */ = {
 			isa = PBXGroup;
 			children = (
+				E5C556AC2DC06F0E004D2801 /* WalkingBunny.json */,
 				E5C556AA2DC06D39004D2801 /* StellaMeApp.swift */,
 				E5C556A82DC06D2A004D2801 /* BunnyLogic.swift */,
 				E555AB182DBFA443005412F0 /* Model */,
@@ -144,6 +149,7 @@
 			);
 			name = StellaMe;
 			packageProductDependencies = (
+				E5C556AF2DC06F80004D2801 /* Lottie */,
 			);
 			productName = StellaMe;
 			productReference = D199E1602DBA129E00D3598E /* StellaMe.app */;
@@ -173,6 +179,9 @@
 			);
 			mainGroup = D199E1572DBA129E00D3598E;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				E5C556AE2DC06F80004D2801 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D199E1612DBA129E00D3598E /* Products */;
 			projectDirPath = "";
@@ -188,6 +197,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5C556AD2DC06F0E004D2801 /* WalkingBunny.json in Resources */,
 				3553F5FB2DBB843300F9B6A6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,6 +421,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E5C556AE2DC06F80004D2801 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E5C556AF2DC06F80004D2801 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5C556AE2DC06F80004D2801 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D199E1582DBA129E00D3598E /* Project object */;
 }

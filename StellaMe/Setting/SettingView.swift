@@ -28,8 +28,8 @@ struct SettingView: View {
         // 배경화면 이미지 파일 넣고, 해당 이미지의 이름 넣으시면 됩니다.
         // 현재 이미지는 서로 사이즈가 달라서 수정 필요
         "DefaultImage",
-        "Marsbg",
-        "Pinkbg"
+        "MarsTest",
+        "MercuryTest"
     ]
     
     // MARK: -  주요 기능
@@ -67,7 +67,7 @@ struct SettingView: View {
                                 Text("배경화면 변경")
                                     .font(.headline)
                                     .padding()
-                                    .background(Color.blue)
+                                    .background(Color.black)
                                     .foregroundColor(.white)
                                     .cornerRadius(10)
                             }

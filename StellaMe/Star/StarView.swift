@@ -16,7 +16,7 @@ struct StarView: View {
             VStack {
                 Image("Star1")
                     .resizable()
-                    .frame(width: 50, height: 50)
+                    .frame(width: 30, height: 30)
                     .foregroundColor(.yellow)
                     .padding(10)
                     .background(Color.gray.opacity(0.2))
