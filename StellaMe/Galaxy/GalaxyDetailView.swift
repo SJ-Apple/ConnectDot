@@ -45,7 +45,7 @@ struct GalaxyDetailView: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 0) {
 
-                      ForEach(galaxyModel.galaxyStars) { galaxyStar in
+                        ForEach(Array(galaxyModel.galaxyStars.enumerated()), id: \.element.id) { index, galaxyStar in
                             if let linkedStar = galaxyStar.linkedStar {
                                 VStack(alignment: .leading, spacing: 0) {
                                     Text(linkedStar.starText)
@@ -53,12 +53,12 @@ struct GalaxyDetailView: View {
                                         .foregroundColor(.white)
                                         .padding(.horizontal, 15)
                                         .padding(.vertical, 10)
-                                       
-                                
-                                // 마지막 줄이 아닐 때만 Divider 삽입
-                                if index != galaxyModel.galaxyTexts.count - 1 {
-                                    Divider()
-                                        .background(Color.white.opacity(0.3))
+                                    
+                                    // 마지막 줄이 아닐 때만 Divider
+                                    if index != galaxyModel.galaxyStars.count - 1 {
+                                        Divider()
+                                            .background(Color.white.opacity(0.3))
+                                    }
                                 }
                             }
                         }
