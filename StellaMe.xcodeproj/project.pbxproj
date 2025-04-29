@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35448EE62DC0644300B9B904 /* GalaxyStarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35448EE42DC0644300B9B904 /* GalaxyStarModel.swift */; };
+		35448EE92DC065AF00B9B904 /* OnboardingTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35448EE82DC065AF00B9B904 /* OnboardingTabView.swift */; };
+		35448EEB2DC065C000B9B904 /* OnboardingLastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35448EEA2DC065C000B9B904 /* OnboardingLastView.swift */; };
+		35448EED2DC065CB00B9B904 /* OnboardingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35448EEC2DC065CB00B9B904 /* OnboardingPageView.swift */; };
 		3553F5FB2DBB843300F9B6A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3553F5F72DBB843300F9B6A6 /* Assets.xcassets */; };
 		3553F5FC2DBB843300F9B6A6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3553F5F82DBB843300F9B6A6 /* ContentView.swift */; };
 		3553F5FD2DBB843300F9B6A6 /* StellaMeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3553F5F92DBB843300F9B6A6 /* StellaMeApp.swift */; };
@@ -22,6 +26,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		35448EE42DC0644300B9B904 /* GalaxyStarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalaxyStarModel.swift; sourceTree = "<group>"; };
+		35448EE82DC065AF00B9B904 /* OnboardingTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTabView.swift; sourceTree = "<group>"; };
+		35448EEA2DC065C000B9B904 /* OnboardingLastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLastView.swift; sourceTree = "<group>"; };
+		35448EEC2DC065CB00B9B904 /* OnboardingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageView.swift; sourceTree = "<group>"; };
 		3553F5F72DBB843300F9B6A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3553F5F82DBB843300F9B6A6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3553F5F92DBB843300F9B6A6 /* StellaMeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StellaMeApp.swift; sourceTree = "<group>"; };
@@ -37,14 +45,6 @@
 		E53E153F2DBBEAD900342D16 /* StarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		E555AB182DBFA443005412F0 /* Model */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Model;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
-
 /* Begin PBXFrameworksBuildPhase section */
 		D199E15D2DBA129E00D3598E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -56,10 +56,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35448EE52DC0644300B9B904 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				35448EE42DC0644300B9B904 /* GalaxyStarModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		35448EE72DC0644700B9B904 /* OnboardingFile */ = {
+			isa = PBXGroup;
+			children = (
+				35448EE82DC065AF00B9B904 /* OnboardingTabView.swift */,
+				35448EEA2DC065C000B9B904 /* OnboardingLastView.swift */,
+				35448EEC2DC065CB00B9B904 /* OnboardingPageView.swift */,
+			);
+			path = OnboardingFile;
+			sourceTree = "<group>";
+		};
 		3553F5FA2DBB843300F9B6A6 /* StellaMe */ = {
 			isa = PBXGroup;
 			children = (
-				E555AB182DBFA443005412F0 /* Model */,
+				35448EE72DC0644700B9B904 /* OnboardingFile */,
+				35448EE52DC0644300B9B904 /* Model */,
 				3553F5FE2DBB84C100F9B6A6 /* Setting */,
 				3553F6012DBB84D300F9B6A6 /* Contents */,
 				3553F5FF2DBB84C800F9B6A6 /* Star */,
@@ -139,9 +158,6 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				E555AB182DBFA443005412F0 /* Model */,
-			);
 			name = StellaMe;
 			packageProductDependencies = (
 			);
@@ -199,11 +215,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35448EED2DC065CB00B9B904 /* OnboardingPageView.swift in Sources */,
 				3553F60F2DBB855800F9B6A6 /* StarDetailView.swift in Sources */,
 				3553F6092DBB850C00F9B6A6 /* GalaxyMakeView.swift in Sources */,
 				3553F6032DBB84E700F9B6A6 /* SettingView.swift in Sources */,
 				3553F6112DBB855D00F9B6A6 /* StarModel.swift in Sources */,
 				3553F6052DBB84F300F9B6A6 /* HomeView.swift in Sources */,
+				35448EE62DC0644300B9B904 /* GalaxyStarModel.swift in Sources */,
+				35448EE92DC065AF00B9B904 /* OnboardingTabView.swift in Sources */,
+				35448EEB2DC065C000B9B904 /* OnboardingLastView.swift in Sources */,
 				3553F5FC2DBB843300F9B6A6 /* ContentView.swift in Sources */,
 				3553F5FD2DBB843300F9B6A6 /* StellaMeApp.swift in Sources */,
 				3553F60D2DBB851900F9B6A6 /* GalaxyDetailView.swift in Sources */,
