@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 import SwiftData
+import Lottie
+
 
 // MARK: - settingview에서 인바이어먼트 베경화면 받아옴
 struct HomeView: View {
@@ -55,7 +57,7 @@ struct HomeView: View {
                             .environmentObject(BackgroundSettings())) {
                             Image(galaxyMemory.galaxyImageName)
                                 .resizable()
-                                .frame(width: 50, height: 50)
+                                .frame(width: 100, height: 100)
                         }
                         .position(x: CGFloat.random(in: 0...(geometry.size.width)),
                                   y: CGFloat.random(in: 0...(geometry.size.height) / 2))
@@ -64,52 +66,54 @@ struct HomeView: View {
                     .frame(width: geometry.size.width, height: geometry.size.height)
                     
 
-                    VStack {
+                    VStack() {
+                        
                         Spacer()
-
-                        // 새 별 만들러 가기 버튼
-                        //TODO: 화면 특정 위치에 고정
-                        NavigationLink(destination: MakeAndSelectView().modelContainer(modelContext.container)) {
-                            Text("새 별 만들러 가기")
-                                .font(.headline)
-                                .padding()
-                                .background(Color.blue)
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
+                            
+                        BunnyView(fileName: "WalkingBunny")
+                            .frame(width: 200, height: 200)
+                        
+                        HStack(alignment: .bottom) {
+                            
+                            
+                            
+                            // 새 별 만들러 가기 버튼
+                            //TODO: 화면 특정 위치에 고정
+                            NavigationLink(destination: MakeAndSelectView().modelContainer(modelContext.container)) {
+                                Image("ShootingStar")
+                                    .resizable()
+                                    .frame(width: 100, height: 100)
+                            }
+                            
+                            
+                            
+//                            Spacer()
+//                            Spacer()
+//
+//                            // 개발용 버튼 (필요시만 표시)
+//                            Button {
+//                                deleteAllGalaxies()
+//                            } label: {
+//                                RoundedRectangle(cornerRadius: 20)
+//                                    .frame(width: 200, height: 50)
+//                                    .overlay {
+//                                        Text("갤럭시 데이터 삭제 (개발용)")
+//                                            .foregroundColor(.white)
+//                                    }
+//                            }
+//                            .padding()
+//
+                            // TODO: 화면 특정 위치에 고정 GeoMericReader 사용 도구함 이미지로 변경
+                            NavigationLink(destination: SettingView().environmentObject(backgroundSettings)) {
+                                Image("ToolBox")
+                                    .resizable()
+                                    .frame(width: 80, height: 80)
+                            }.padding()
+                            
+                            
                         }
-                        .padding()
-        
-
-                        
-                    
-
-                        // 개발용 버튼 (필요시만 표시)
-                        Button {
-                            deleteAllGalaxies()
-                        } label: {
-                            RoundedRectangle(cornerRadius: 20)
-                                .frame(width: 200, height: 50)
-                                .overlay {
-                                    Text("갤럭시 데이터 삭제 (개발용)")
-                                        .foregroundColor(.white)
-                                }
-                        }
-                        .padding()
-                        
-                        // TODO: 화면 특정 위치에 고정 GeoMericReader 사용 도구함 이미지로 변경
-                        NavigationLink(destination: SettingView().environmentObject(backgroundSettings)) {
-                                Text("배경화면 설정")
-                                    .font(.headline)
-                                    .padding()
-                                    .background(Color.blue)
-                                    .foregroundColor(.white)
-                                    .cornerRadius(10)
-                        }.padding()
-                      Spacer()
-
-                        
                     }
-                    .padding()
+                    .padding(.bottom, 100)
                     
                     
                 } //: ZStack
