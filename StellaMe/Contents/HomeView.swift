@@ -13,6 +13,8 @@ import Lottie
 
 // MARK: - settingview에서 인바이어먼트 베경화면 받아옴
 struct HomeView: View {
+    @AppStorage("_isFirstLaunching") var isFirstLaunching: Bool = true
+    
     @Environment(\.modelContext) private var modelContext
     @EnvironmentObject var backgroundSettings: BackgroundSettings
     @Query var StarMemoryes: [StarModel] // 별 저장소 이용
@@ -21,6 +23,10 @@ struct HomeView: View {
     var body: some View {
         GeometryReader { geometry in
                 ZStack {
+                    Text("")
+                        .fullScreenCover(isPresented: $isFirstLaunching) {
+                            OnboardingTabView(isFristLauncing: $isFirstLaunching)
+                        }
                     // 배경 이미지
                     Image(backgroundSettings.currentBackgroundImage)
                         .resizable()
