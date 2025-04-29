@@ -86,7 +86,7 @@
 //  Created by JaeyoungLee on 4/24/25.
 
 import SwiftUI
-import SwiftData   
+import SwiftData
 
 struct GalaxyDetailView: View {
     @Environment(\.modelContext) private var modelContext
@@ -95,7 +95,7 @@ struct GalaxyDetailView: View {
 
     var body: some View {
         ZStack {
-            // 배경 이미지 + 블러 효과
+            // 배경 이미지 + 오버레이
             Image(backgroundSettings.currentBackgroundImage)
                 .resizable()
                 .scaledToFill()
@@ -125,7 +125,7 @@ struct GalaxyDetailView: View {
                 // 별자리 설명 리스트
                 ScrollView {
                     VStack(alignment: .leading, spacing: 0) {
-                        ForEach(galaxyModel.galaxyTexts, id: \.self) { text in
+                        ForEach(Array(galaxyModel.galaxyTexts.enumerated()), id: \.element) { index, text in
                             VStack(alignment: .leading, spacing: 0) {
                                 Text(text)
                                     .font(.body)
@@ -133,10 +133,14 @@ struct GalaxyDetailView: View {
                                     .padding(.horizontal, 15)
                                     .padding(.vertical, 10)
                                 
-                                Divider()
-                                    .background(Color.white.opacity(0.3))
+                                // 마지막 줄이 아닐 때만 Divider 삽입
+                                if index != galaxyModel.galaxyTexts.count - 1 {
+                                    Divider()
+                                        .background(Color.white.opacity(0.3))
+                                }
                             }
                         }
+                        
                     } //: VStack
                     .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
                     .shadow(radius: 5)
